@@ -3,7 +3,8 @@ import { useState } from "react"
 export default function PageHTML() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
-
+    const [isThatTrue, setIsThatTrue ] = useState(false)
+    const [selectedAnswer, setSelectedAnswer] = useState('')
 
     let soruHTML = [
         {
@@ -30,7 +31,7 @@ export default function PageHTML() {
             secenekB: 'window="new"',
             secenekC: 'open="new"',
             secenekD: 'link="blank"',
-            dogru: 'target="_blank""'
+            dogru: 'target="_blank"'
         },
     
         {
@@ -52,6 +53,33 @@ export default function PageHTML() {
         },
     ]
 
+    function selected(e) {
+        e.target.style.border = '3px solid #A729F5'
+        setSelectedAnswer(e.currentTarget.querySelector('h1').innerText)
+        console.log(selectedAnswer)
+    }
+    
+    function checkAnswer() {
+        selectedAnswer === soruHTML[currentIndex].dogru ? nextQuestion() : alert('GAME OVER')
+        setTimeout(() => {
+            let btns = document.querySelectorAll('.choises button')
+            for(let btn of btns) {
+                btn.style.border = 'none'
+            }
+        }, 0)
+        
+        
+    }
+
+    function nextQuestion() {
+        console.log(currentIndex)
+        currentIndex + 2 > soruHTML.length ? alert('tebrikler çok iyiydin') : setCurrentIndex(currentIndex + 1);
+
+        
+
+
+    }
+
     return (
         <div className="subject-container">
 
@@ -71,11 +99,28 @@ export default function PageHTML() {
                 </div>
 
                 <div className="choises">
-                    <button><p>A</p>{soruHTML[currentIndex].secenekA}</button>
-                    <button><p>B</p>{soruHTML[currentIndex].secenekB}</button>
-                    <button><p>C</p>{soruHTML[currentIndex].secenekC}</button>
-                    <button><p>D</p>{soruHTML[currentIndex].secenekD}</button>
-                    <button id="submitAnswer">Submit Answer</button>
+
+                    <button onClick={selected}>
+                        <p style={{ pointerEvents: 'none' }}>A</p>
+                        <h1 style={{ pointerEvents: 'none' }}>{soruHTML[currentIndex].secenekA}</h1>
+                    </button>
+
+                    <button onClick={selected}>
+                        <p style={{ pointerEvents: 'none' }} >B</p>
+                        <h1 style={{ pointerEvents: 'none' }}>{soruHTML[currentIndex].secenekB}</h1>
+                    </button>
+
+                    <button onClick={selected}>
+                        <p style={{ pointerEvents: 'none' }} >C</p>
+                        <h1 style={{ pointerEvents: 'none' }}>{soruHTML[currentIndex].secenekC}</h1>
+                    </button>
+
+                    <button onClick={selected}>
+                        <p style={{ pointerEvents: 'none' }} >D</p>
+                        <h1 style={{ pointerEvents: 'none' }}>{soruHTML[currentIndex].secenekD}</h1>
+                    </button>
+                    
+                    <button onClick={checkAnswer} id="submitAnswer">Submit Answer</button>
                 </div>
             </div>
 
