@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './style.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import PageHTML from './pages/page-html.jsx'
+import ResultsHTML from './results-html.jsx'
 
 const Router = createBrowserRouter([
     {
@@ -14,6 +15,11 @@ const Router = createBrowserRouter([
     {
         path: '/questions-html',
         element: <PageHTML />
+    },
+
+    {
+        path: '/results-html',
+        element: <ResultsHTML />
     }
 ])
 

@@ -1,11 +1,12 @@
 import { useState } from "react"
+let dogruSayisi = 0
 
 export default function PageHTML() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isThatTrue, setIsThatTrue ] = useState(false)
-    const [selectedAnswer, setSelectedAnswer] = useState('')
-
+    
+    
     let soruHTML = [
         {
             soru: 'Hangi HTML etiketi metni kalın yapar?',
@@ -53,32 +54,44 @@ export default function PageHTML() {
         },
     ]
 
+    function redirectToAnotherPage() {
+        // Başka bir HTML sayfasının URL'sini belirtin
+        const targetPageURL = '/results-html';
+      
+        // Yönlendirme işlemi
+        window.location.href = targetPageURL;
+      }
+      
+      // Fonksiyonu otomatik olarak çağırabilirsiniz, bu sayede sayfa yüklendiğinde yönlendirme gerçekleşir
+      
+
     function selected(e) {
-        e.target.style.border = '3px solid #A729F5'
-        setSelectedAnswer(e.currentTarget.querySelector('h1').innerText)
-        console.log(selectedAnswer)
-    }
-    
-    function checkAnswer() {
-        selectedAnswer === soruHTML[currentIndex].dogru ? nextQuestion() : alert('GAME OVER')
+
+        if(e.target.querySelector('h1').innerText === soruHTML[currentIndex].dogru) {
+            e.target.style.backgroundColor = '#26D782';
+            dogruSayisi = dogruSayisi + 1
+            console.log(dogruSayisi)
+        } else {
+            e.target.style.backgroundColor = '#EE5454'
+        };
         setTimeout(() => {
-            let btns = document.querySelectorAll('.choises button')
-            for(let btn of btns) {
-                btn.style.border = 'none'
-            }
-        }, 0)
-        
-        
+            e.target.style.backgroundColor = '';
+            nextQuestion();
+        }, 1500)
+
     }
 
     function nextQuestion() {
-        console.log(currentIndex)
-        currentIndex + 2 > soruHTML.length ? alert('tebrikler çok iyiydin') : setCurrentIndex(currentIndex + 1);
-
+        if(currentIndex + 2 > soruHTML.length) {
+            redirectToAnotherPage();
+            return;
+        }
         
-
-
+        setCurrentIndex( currentIndex + 1)
+        console.log('current' + currentIndex)
+        
     }
+
 
     return (
         <div className="subject-container">
@@ -120,7 +133,6 @@ export default function PageHTML() {
                         <h1 style={{ pointerEvents: 'none' }}>{soruHTML[currentIndex].secenekD}</h1>
                     </button>
                     
-                    <button onClick={checkAnswer} id="submitAnswer">Submit Answer</button>
                 </div>
             </div>
 
