@@ -16,18 +16,10 @@ const Router = createBrowserRouter([
         path: '/questions-html',
         element: <PageHTML />
     },
-
-    {
-        path: '/results-html',
-        element: <ResultsHTML />
-    }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
         <RouterProvider router={Router}/>
-
-        
-        
 
 )

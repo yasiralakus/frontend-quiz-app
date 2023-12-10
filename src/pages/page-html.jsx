@@ -1,10 +1,14 @@
 import { useState } from "react"
-let dogruSayisi = 0
+import { Link } from "react-router-dom"
 
-export default function PageHTML() {
+let dogruSayisi = 0;
+let yanlisSayisi = 0;
+
+function QuestionsHTML( {onQuizFinish}) {
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isThatTrue, setIsThatTrue ] = useState(false)
+    const [isThatTrue, setIsThatTrue ] = useState(false);
+    const [isFinished, setIsFinished] = useState(false);
     
     
     let soruHTML = [
@@ -53,26 +57,17 @@ export default function PageHTML() {
             dogru: '<style>'
         },
     ]
-
-    function redirectToAnotherPage() {
-        // Başka bir HTML sayfasının URL'sini belirtin
-        const targetPageURL = '/results-html';
       
-        // Yönlendirme işlemi
-        window.location.href = targetPageURL;
-      }
-      
-      // Fonksiyonu otomatik olarak çağırabilirsiniz, bu sayede sayfa yüklendiğinde yönlendirme gerçekleşir
-      
-
     function selected(e) {
 
         if(e.target.querySelector('h1').innerText === soruHTML[currentIndex].dogru) {
             e.target.style.backgroundColor = '#26D782';
             dogruSayisi = dogruSayisi + 1
-            console.log(dogruSayisi)
+            console.log('dogru ' + dogruSayisi)
         } else {
             e.target.style.backgroundColor = '#EE5454'
+            yanlisSayisi = yanlisSayisi + 1
+            console.log('yanlis ' + yanlisSayisi)
         };
         setTimeout(() => {
             e.target.style.backgroundColor = '';
@@ -83,7 +78,8 @@ export default function PageHTML() {
 
     function nextQuestion() {
         if(currentIndex + 2 > soruHTML.length) {
-            redirectToAnotherPage();
+            setIsFinished(true);
+            onQuizFinish();
             return;
         }
         
@@ -135,7 +131,74 @@ export default function PageHTML() {
                     
                 </div>
             </div>
-
         </div>
     )
+}
+
+function ResultsHTML() {
+
+    function cleanScore() {
+        dogruSayisi = 0;
+        yanlisSayisi = 0;
+    }
+
+    return (
+
+        <>
+            <div className="subject-container-header">
+
+                <img src="./src/assets/img/html-icon.png" alt="" />
+                HTML
+
+            </div>
+
+            <div className="questionBox">
+
+                <div className="question">
+                    <h3>Quiz Completed <span>Your scored...</span></h3>
+                </div>
+
+                <div className="rightSide">
+
+                    <div className="scoreBox">
+
+                        <div className="scoreBoxHeader">
+                            <img src="./src/assets/img/html-icon.png" alt="" /> HTML
+                        </div>
+
+                        <div className="scoreBoxBody">
+
+                            <h1>{dogruSayisi}</h1>
+                            <p>out of {dogruSayisi + yanlisSayisi}</p>
+
+                        </div>
+                        
+                    </div>
+
+                    <Link to='/' onClick={cleanScore}>Play Again</Link>
+
+                </div>
+            </div>
+        </>
+        )
+            
+}
+
+
+export default function PageHTML() {
+
+    const [isFinished, setIsFinished] = useState(false);
+
+    const handleQuizFinish = () => {
+        setIsFinished(true);
+    };
+
+    return (
+
+        <div className="subject-container">
+
+            {isFinished === true ? <ResultsHTML /> : <QuestionsHTML onQuizFinish={handleQuizFinish} />}
+
+        </div>
+        )
 }

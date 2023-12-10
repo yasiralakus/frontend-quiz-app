@@ -215,3 +215,47 @@ body {
     justify-content: center;
     gap: 24px;
 }
+
+.scoreBoxBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    & h1 {
+        color: var(--Dark-Navy, #313E51);
+        font-size: 144px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%; /* 144px */
+    }
+    & p {
+        color: var(--Grey-Navy, #626C7F);
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 36px */
+    }
+}
+
+.rightSide {
+    flex-direction: column;
+    gap: 32px;
+    display: flex;
+    & a {
+        background-color: #A729F5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        padding: 32px;
+        border-radius: 24px;
+        width: 100%;
+        color: var(--Pure-White, #FFF);
+        font-family: Rubik;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%; /* 28px */
+    }
+}
