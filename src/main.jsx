@@ -4,7 +4,9 @@ import App from './App.jsx'
 import './style.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import PageHTML from './pages/page-html.jsx'
-import ResultsHTML from './results-html.jsx'
+import PageCSS from './pages/page-css.jsx'
+import PageJS from './pages/page-js.jsx'
+import PageACC from './pages/page-acc.jsx'
 
 const Router = createBrowserRouter([
     {
@@ -15,6 +17,21 @@ const Router = createBrowserRouter([
     {
         path: '/questions-html',
         element: <PageHTML />
+    },
+
+    {
+        path: '/questions-css',
+        element: <PageCSS />
+    },
+
+    {
+        path: '/questions-js',
+        element: <PageJS />
+    },
+
+    {
+        path: '/questions-accessibility',
+        element: <PageACC />
     },
 ])
 
