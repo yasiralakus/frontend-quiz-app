@@ -90,7 +90,7 @@ function QuestionsHTML( {onQuizFinish}) {
 
 
     return (
-        <div className="subject-container">
+        <>
 
             <div className="subject-container-header">
 
@@ -131,7 +131,7 @@ function QuestionsHTML( {onQuizFinish}) {
                     
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

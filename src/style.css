@@ -80,7 +80,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 85px;
-    padding: 80px 140px;
+    padding: 140px;
 }
 
 .subject-container-header {

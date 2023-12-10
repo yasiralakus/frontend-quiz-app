@@ -90,8 +90,7 @@ function QuestionsACC( {onQuizFinish}) {
 
 
     return (
-        <div className="subject-container">
-
+        <>
             <div className="subject-container-header">
 
                 <img src="./src/assets/img/acc-icon.png" alt="" />
@@ -130,8 +129,8 @@ function QuestionsACC( {onQuizFinish}) {
                     </button>
                     
                 </div>
-            </div>
         </div>
+        </>
     )
 }
 
