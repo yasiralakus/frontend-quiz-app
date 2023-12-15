@@ -94,7 +94,7 @@ function QuestionsJS( {onQuizFinish}) {
 
             <div className="subject-container-header">
 
-                <img src="./src/assets/img/js-icon.png" alt="" />
+                <img src="/img/js-icon.png" alt="" />
                 Javascript
 
             </div>
@@ -147,7 +147,7 @@ function ResultsJS() {
         <>
             <div className="subject-container-header">
 
-                <img src="./src/assets/img/js-icon.png" alt="" />
+                <img src="/img/js-icon.png" alt="" />
                 Javascript
 
             </div>
@@ -163,7 +163,7 @@ function ResultsJS() {
                     <div className="scoreBox">
 
                         <div className="scoreBoxHeader">
-                            <img src="./src/assets/img/js-icon.png" alt="" /> Javascript
+                            <img src="/img/js-icon.png" alt="" /> Javascript
                         </div>
 
                         <div className="scoreBoxBody">

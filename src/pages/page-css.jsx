@@ -94,7 +94,7 @@ function QuestionsCSS( {onQuizFinish}) {
 
             <div className="subject-container-header">
 
-                <img src="./src/assets/img/css-icon.png" alt="" />
+                <img src="/img/css-icon.png" alt="" />
                 CSS
 
             </div>
@@ -147,7 +147,7 @@ function ResultsCSS() {
         <>
             <div className="subject-container-header">
 
-                <img src="./src/assets/img/css-icon.png" alt="" />
+                <img src="/img/css-icon.png" alt="" />
                 CSS
 
             </div>
@@ -163,7 +163,7 @@ function ResultsCSS() {
                     <div className="scoreBox">
 
                         <div className="scoreBoxHeader">
-                            <img src="./src/assets/img/css-icon.png" alt="" /> CSS
+                            <img src="/img/css-icon.png" alt="" /> CSS
                         </div>
 
                         <div className="scoreBoxBody">

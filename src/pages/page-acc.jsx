@@ -93,7 +93,7 @@ function QuestionsACC( {onQuizFinish}) {
         <>
             <div className="subject-container-header">
 
-                <img src="./src/assets/img/acc-icon.png" alt="" />
+                <img src="/img/acc-icon.png" alt="" />
                 Accessibility
 
             </div>
@@ -146,7 +146,7 @@ function ResultsACC() {
         <>
             <div className="subject-container-header">
 
-                <img src="./src/assets/img/acc-icon.png" alt="" />
+                <img src="/img/acc-icon.png" alt="" />
                 Accessibility
 
             </div>
@@ -162,7 +162,7 @@ function ResultsACC() {
                     <div className="scoreBox">
 
                         <div className="scoreBoxHeader">
-                            <img src="./src/assets/img/acc-icon.png" alt="" /> Accessibility
+                            <img src="/img/acc-icon.png" alt="" /> Accessibility
                         </div>
 
                         <div className="scoreBoxBody">

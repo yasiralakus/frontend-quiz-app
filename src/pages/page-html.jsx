@@ -94,7 +94,7 @@ function QuestionsHTML( {onQuizFinish}) {
 
             <div className="subject-container-header">
 
-                <img src="./src/assets/img/html-icon.png" alt="" />
+                <img src="/img/html-icon.png" alt="" />
                 HTML
 
             </div>
@@ -147,7 +147,7 @@ function ResultsHTML() {
         <>
             <div className="subject-container-header">
 
-                <img src="./src/assets/img/html-icon.png" alt="" />
+                <img src="/img/html-icon.png" alt="" />
                 HTML
 
             </div>
@@ -163,7 +163,7 @@ function ResultsHTML() {
                     <div className="scoreBox">
 
                         <div className="scoreBoxHeader">
-                            <img src="./src/assets/img/html-icon.png" alt="" /> HTML
+                            <img src="/img/html-icon.png" alt="" /> HTML
                         </div>
 
                         <div className="scoreBoxBody">
